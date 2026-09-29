@@ -1,45 +1,67 @@
 # LiturgyMake
 
-> A small C++ project manager and build frontend powered by LScript.
+<p align="center">
+  <img src="https://img.shields.io/badge/C%2B%2B-23-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++23">
+  <img src="https://img.shields.io/badge/CMake-4.3+-064F8C?style=for-the-badge&logo=cmake&logoColor=white" alt="CMake">
+  <img src="https://img.shields.io/badge/MSVC-supported-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white" alt="MSVC">
+  <img src="https://img.shields.io/badge/Status-Experimental-orange?style=for-the-badge" alt="Experimental">
+  <img src="https://img.shields.io/badge/Vibe--Coded-8A2BE2?style=for-the-badge" alt="Vibe Coded">
+</p>
 
-LiturgyMake is an experimental C++ build/project management tool written in C++.
+<p align="center">
+  <b>A simple C++ project manager powered by LScript.</b>
+  <br>
+  <sub>Less boilerplate. More C++.</sub>
+</p>
 
-The idea is simple: keep CMake underneath, but provide a much simpler project description language and CLI on top of it.
-
-Instead of writing and maintaining a large `CMakeLists.txt`, a project can be described using a small LScript configuration file.
-
-## Why?
-
-CMake is powerful, but its syntax can become unnecessarily complicated for small and medium-sized C++ projects.
-
-LiturgyMake is an experiment to see how far a simpler developer experience can go.
-
-The project is also being built as a **vibe-coded / experimental project** — features are designed, implemented, tested and improved along the way rather than following a fixed specification.
-
-The goal is not to replace CMake overnight.
-
-The goal is to build something better step by step.
+<p align="center">
+  <a href="#features">Features</a>
+  •
+  <a href="#lscript">LScript</a>
+  •
+  <a href="#cli">CLI</a>
+  •
+  <a href="#roadmap">Roadmap</a>
+  •
+  <a href="#building">Building</a>
+</p>
 
 ---
 
-## LScript
+## ⚡ What is LiturgyMake?
 
-LiturgyMake uses its own small configuration language called **LScript**.
+**LiturgyMake** is an experimental C++ project manager and build frontend.
 
-Example:
+It introduces **LScript**, a small configuration language designed to make C++ project configuration simple, readable and fast to write.
 
-```lscript
-using LScript
+Instead of manually maintaining a large `CMakeLists.txt`, you describe your project using a small `liturgy.ls` file.
 
-app "LiturgyTest"
+LiturgyMake generates the required CMake configuration and then uses **CMake + MSBuild** to build the project.
 
-cpp 23
-
-src "src"
-include "include"
-
-define DEBUG
-define MY_PROJECT
-
-link user32
-link d3d11
+```text
+┌─────────────┐
+│  liturgy.ls │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│   LScript   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ LiturgyMake │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│    CMake    │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│   MSBuild   │
+└──────┬──────┘
+       │
+       ▼
+    program.exe
