@@ -1,0 +1,28 @@
+# CLion
+.idea/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Build output
+build/
+out/
+bin/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln
+*.vcxproj
+*.vcxproj.filters
+
+# Compiled files
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
